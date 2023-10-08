@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './password-generator.css';
 import CopyButton from './copy-button';
 import RegenButton from './regen-button';       
+import SafetyWarning from './safety-warning';
+
 
 function PasswordGenerator() {
     const [password, setPassword] = useState('');
@@ -42,8 +44,9 @@ function PasswordGenerator() {
                     max="30"
                     onChange={handlePasswordLengthChange}/>
                  </label>
+                 <SafetyWarning passwordLength={passwordLength} />       
                 </div>
-                
+                         
                 <div className='options'>
                 <label>Mayusculas<input type="checkbox" checked={includeUppercase} onChange={() => setIncludeUppercase(!includeUppercase)}/></label>
                 <label>Minusculas<input type="checkbox" checked={includeLowercase} onChange={() => setIncludeLowercase(!includeLowercase)}/></label>
